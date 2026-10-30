@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Autofill</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="popup-header">
+      <div class="header-left">
+        <span class="logo-icon">⚡</span>
+        <div class="title-group">
+          <h1>Job Autofill</h1>
+          <span class="badge-privacy">100% Local & Private</span>
+        </div>
+      </div>
+      <button id="btn-settings-icon" class="icon-button" title="Settings">⚙</button>
+    </div>
+
+    <!-- Status Card -->
+    <div class="status-card">
+      <div class="status-row">
+        <span class="status-label">Profile Status</span>
+        <span id="profile-status-pill" class="status-pill status-complete">Complete</span>
+      </div>
+      <div class="status-row">
+        <span class="status-label">Current Page</span>
+        <span id="page-status-pill" class="status-pill status-ready">Scanning...</span>
+      </div>
+      <div class="status-row">
+        <span class="status-label">Learning</span>
+        <span id="learning-status-pill" class="status-pill status-none">Checking...</span>
+      </div>
+      <div class="status-row">
+        <span class="status-label">Active Mode</span>
+        <select id="select-mode" class="mode-dropdown">
+          <option value="safe">Safe (High Confidence)</option>
+          <option value="normal">Normal (Recommended)</option>
+          <option value="aggressive">Aggressive (Fill All)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button id="btn-run-autofill" class="btn btn-primary">
+        <span class="btn-icon">⚡</span>
+        <span>RUN AUTOFILL</span>
+      </button>
+
+      <div class="btn-row">
+        <button id="btn-preview" class="btn btn-secondary">
+          <span class="btn-icon">🔍</span>
+          <span>Preview</span>
+        </button>
+        <button id="btn-clear" class="btn btn-secondary">
+          <span class="btn-icon">↺</span>
+          <span>Clear Fields</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Unanswered Questions Assistant Section (Dynamic) -->
+    <div id="unanswered-section" class="unanswered-section hidden" style="margin-top:10px;">
+      <div class="unanswered-header">
+        <div style="display:flex; align-items:center; gap:6px;">
+          <span style="font-size:14px;">💡</span>
+          <span style="font-weight:600; font-size:12px; color:#581c87;">New / Unanswered Questions</span>
+        </div>
+        <span id="unanswered-count-badge" class="badge-count">0</span>
+      </div>
+      <p style="font-size:11px; color:#6b21a8; margin:4px 0 8px 0; line-height:1.3;">
+        Answer these questions to fill the form now and permanently teach the extension for future applications:
+      </p>
+      <div id="unanswered-questions-container" class="unanswered-container">
+        <!-- Injected dynamically -->
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+        <button id="btn-learn-page" class="btn-text-action" title="Capture any fields you manually typed or selected on the page">
+          📥 Learn from Page
+        </button>
+        <button id="btn-save-all-qa" class="btn btn-sm btn-purple" style="font-size:11px; padding:4px 10px;">
+          Save & Fill Page
+        </button>
+      </div>
+    </div>
+
+    <!-- Report / Summary Section (Hidden initially) -->
+    <div id="report-section" class="report-section hidden">
+      <div class="report-header">Last Run Summary</div>
+      <div class="report-stats">
+        <div class="stat-box">
+          <span id="stat-filled" class="stat-num stat-green">0</span>
+          <span class="stat-desc">Filled</span>
+        </div>
+        <div class="stat-box">
+          <span id="stat-review" class="stat-num stat-amber">0</span>
+          <span class="stat-desc">Review</span>
+        </div>
+        <div class="stat-box">
+          <span id="stat-skipped" class="stat-num stat-gray">0</span>
+          <span class="stat-desc">Skipped</span>
+        </div>
+      </div>
+      <div id="report-message" class="report-message"></div>
+    </div>
+
+    <!-- Footer -->
+    <details style="margin-top:10px;font-size:11px;color:#64748b;">
+      <summary>Having trouble with this page?</summary>
+      <p>Save a local report showing recognized questions and memory matches. Your answers and profile values are excluded.</p>
+      <button id="btn-page-report" class="link-btn">Download page report</button>
+      <span id="page-report-status"></span>
+    </details>
+    <div class="popup-footer">
+      <span class="shortcut-tip"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> · <span id="extension-version"></span></span>
+      <button id="btn-open-settings" class="link-btn">Full Profile & Settings →</button>
+    </div>
+  </div>
+
+  <script type="module" src="popup.ts"></script>
+</body>
+</html>

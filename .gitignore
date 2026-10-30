@@ -1,0 +1,14 @@
+node_modules/
+dist/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+*.local
+credentials*.json
+token*.json
+job-autofill-profile*.json
+job-autofill-page-report*.json
+*.log
+.DS_Store
+Thumbs.db

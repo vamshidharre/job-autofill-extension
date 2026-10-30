@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application: Senior Simulation Engineer (NVH / FEA) - Acme Mobility AG</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+    }
+    .header {
+      background: #0f172a;
+      color: white;
+      padding: 30px;
+    }
+    .header h1 {
+      margin: 0 0 8px 0;
+      font-size: 22px;
+    }
+    .header p {
+      margin: 0;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    form {
+      padding: 30px;
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 24px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #f1f5f9;
+      color: #0f172a;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .full-width {
+      grid-column: span 2;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #475569;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .checkbox-group {
+      margin: 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .submit-bar {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn-submit {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .banner-test {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span style="font-size:12px; background:#1e293b; padding:3px 8px; border-radius:4px; text-transform:uppercase; font-weight:700; color:#38bdf8;">Engineering Careers</span>
+      <h1>Senior Simulation Engineer - NVH & Structural Dynamics</h1>
+      <p>Acme Mobility AG • Stuttgart, Germany • Full-time</p>
+    </div>
+
+    <form id="job-app-form">
+      <div class="banner-test">
+        <strong>🧪 Job Application Autofill Test Sandbox</strong><br />
+        Open the <strong>Job Autofill</strong> browser extension on this page and click <strong>RUN AUTOFILL</strong> (or press <kbd>Ctrl+Shift+F</kbd>). Watch the fields get populated with your profile and highlighted!
+      </div>
+
+      <!-- 1. Personal Information -->
+      <div class="section-title">1. Personal Information / Persönliche Daten</div>
+      <div class="grid">
+        <div>
+          <label for="first_name">First Name / Vorname *</label>
+          <input type="text" id="first_name" name="first_name" autocomplete="given-name" required />
+        </div>
+        <div>
+          <label for="last_name">Last Name / Nachname *</label>
+          <input type="text" id="last_name" name="last_name" autocomplete="family-name" required />
+        </div>
+        <div>
+          <label for="email">E-Mail Address / E-Mail-Adresse *</label>
+          <input type="email" id="email" name="email" autocomplete="email" required />
+        </div>
+        <div>
+          <label for="phone">Phone Number / Telefonnummer *</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" required />
+        </div>
+        <div class="full-width">
+          <label for="linkedin_url">LinkedIn Profile URL</label>
+          <input type="text" id="linkedin_url" name="linkedin_url" placeholder="https://www.linkedin.com/in/..." />
+        </div>
+        <div class="full-width">
+          <label for="github_url">GitHub Profile URL</label>
+          <input type="text" id="github_url" name="github_url" placeholder="https://github.com/..." />
+        </div>
+      </div>
+
+      <!-- 2. Address -->
+      <div class="section-title">2. Residential Address / Anschrift</div>
+      <div class="grid">
+        <div class="full-width">
+          <label for="street">Street Address / Straße *</label>
+          <input type="text" id="street" name="street" autocomplete="street-address" />
+        </div>
+        <div>
+          <label for="postal_code">Postal Code / PLZ *</label>
+          <input type="text" id="postal_code" name="postal_code" autocomplete="postal-code" />
+        </div>
+        <div>
+          <label for="city">City / Stadt *</label>
+          <input type="text" id="city" name="city" autocomplete="address-level2" />
+        </div>
+        <div class="full-width">
+          <label for="country">Country / Land *</label>
+          <select id="country" name="country">
+            <option value="">-- Please select --</option>
+            <option value="DE">Deutschland</option>
+            <option value="AT">Österreich</option>
+            <option value="CH">Schweiz</option>
+            <option value="US">United States</option>
+            <option value="IN">India</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 3. Work Authorization & Compensation -->
+      <div class="section-title">3. Availability & Compensation</div>
+      <div class="grid">
+        <div>
+          <label for="salary_expectation">Salary Expectation (Gross EUR/year) / Gehaltsvorstellung *</label>
+          <input type="number" id="salary_expectation" name="salary_expectation" placeholder="e.g. 65000" />
+        </div>
+        <div>
+          <label for="earliest_start_date">Earliest Start Date / Frühestmöglicher Eintrittstermin *</label>
+          <input type="date" id="earliest_start_date" name="earliest_start_date" />
+        </div>
+        <div class="full-width">
+          <label for="work_auth">Are you legally authorized to work in Germany / EU? *</label>
+          <select id="work_auth" name="work_auth">
+            <option value="">-- Please select --</option>
+            <option value="yes">Yes / Ja</option>
+            <option value="no">No / Nein</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 4. Cover Letter & Custom Questions -->
+      <div class="section-title">4. Motivation & Application Documents</div>
+      <div class="full-width" style="margin-bottom:16px;">
+        <label for="cover_letter">Cover Letter / Why are you interested in this position? *</label>
+        <textarea id="cover_letter" name="cover_letter" rows="5" placeholder="Tell us why you would be a great fit for our simulation engineering team..."></textarea>
+      </div>
+
+      <div class="full-width" style="margin-bottom:16px;">
+        <label for="resume_file">Attach Resume / CV (PDF) *</label>
+        <input type="file" id="resume_file" name="resume_file" accept=".pdf" />
+      </div>
+
+      <!-- 4b. Additional Recruiter Questions (Testing Interactive Learning) -->
+      <div class="section-title">4b. Additional Recruiter Questions</div>
+      <div class="grid">
+        <div class="full-width">
+          <label for="custom_tool_exp">What is your primary FEA / Simulation software experience? *</label>
+          <input type="text" id="custom_tool_exp" name="custom_tool_exp" placeholder="e.g. ANSYS Mechanical & NASTRAN" />
+        </div>
+        <div class="full-width">
+          <fieldset style="border:1px solid #cbd5e1; border-radius:6px; padding:12px;">
+            <legend style="font-size:13px; font-weight:600; color:#475569; padding:0 6px;">Are you willing to travel up to 25% for on-site testing? *</legend>
+            <div style="display:flex; gap:16px; margin-top:6px;">
+              <label style="display:inline-flex; align-items:center; gap:6px; font-size:13px; cursor:pointer;">
+                <input type="radio" name="travel_pref" value="yes" />
+                <span>Yes / Ja</span>
+              </label>
+              <label style="display:inline-flex; align-items:center; gap:6px; font-size:13px; cursor:pointer;">
+                <input type="radio" name="travel_pref" value="no" />
+                <span>No / Nein</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <!-- 5. Legal & Safety Check (MUST NEVER BE AUTO-CHECKED) -->
+      <div class="section-title">5. Declarations & Consent</div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="terms_consent" name="terms_consent" required />
+        <label for="terms_consent" style="margin:0; font-weight:normal; font-size:13px;">
+          I agree to the Terms and Conditions and acknowledge the Privacy Policy (Datenschutzerklärung).
+        </label>
+      </div>
+
+      <!-- Submit Bar -->
+      <div class="submit-bar">
+        <span style="font-size:12px; color:#64748b;">Job Autofill will highlight completed fields without submitting.</span>
+        <button type="button" id="btn_submit_app" class="btn-submit">Submit Application</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Autofill - Settings & Profile Manager</title>
+  <link rel="stylesheet" href="settings.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span class="brand-icon">⚡</span>
+        <div>
+          <div class="brand-title">Job Autofill</div>
+          <div class="brand-sub">Local-First Candidate Profile</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#wizard" class="nav-item active" data-tab="wizard">
+          <span class="nav-icon">🚀</span>
+          <span>Setup Wizard</span>
+        </a>
+        <a href="#basic" class="nav-item" data-tab="basic">
+          <span class="nav-icon">👤</span>
+          <span>Personal Info</span>
+        </a>
+        <a href="#preferences" class="nav-item" data-tab="preferences">
+          <span class="nav-icon">🎯</span>
+          <span>Job Preferences</span>
+        </a>
+        <a href="#salary" class="nav-item" data-tab="salary">
+          <span class="nav-icon">💰</span>
+          <span>Salary Expectation</span>
+        </a>
+        <a href="#authorization" class="nav-item" data-tab="authorization">
+          <span class="nav-icon">🛂</span>
+          <span>Work Authorization</span>
+        </a>
+        <a href="#education" class="nav-item" data-tab="education">
+          <span class="nav-icon">🎓</span>
+          <span>Education</span>
+        </a>
+        <a href="#experience" class="nav-item" data-tab="experience">
+          <span class="nav-icon">💼</span>
+          <span>Work Experience</span>
+        </a>
+        <a href="#skills" class="nav-item" data-tab="skills">
+          <span class="nav-icon">🛠</span>
+          <span>Skills Database</span>
+        </a>
+        <a href="#languages" class="nav-item" data-tab="languages">
+          <span class="nav-icon">🌐</span>
+          <span>Languages</span>
+        </a>
+        <a href="#documents" class="nav-item" data-tab="documents">
+          <span class="nav-icon">📁</span>
+          <span>Documents & CV</span>
+        </a>
+        <a href="#qa" class="nav-item" data-tab="qa">
+          <span class="nav-icon">💬</span>
+          <span>Saved Answers (Q&A)</span>
+        </a>
+        <a href="#corrections" class="nav-item" data-tab="corrections">
+          <span class="nav-icon">🎯</span>
+          <span>Learned Corrections</span>
+        </a>
+        <a href="#cover-letters" class="nav-item" data-tab="cover-letters">
+          <span class="nav-icon">📝</span>
+          <span>Cover Letter Templates</span>
+        </a>
+        <a href="#history" class="nav-item" data-tab="history">
+          <span class="nav-icon">📊</span>
+          <span>Application History</span>
+        </a>
+        <a href="#autofill-config" class="nav-item" data-tab="autofill-config">
+          <span class="nav-icon">⚙</span>
+          <span>Autofill Behavior</span>
+        </a>
+        <a href="#privacy" class="nav-item" data-tab="privacy">
+          <span class="nav-icon">🔒</span>
+          <span>Privacy & Data</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="privacy-guarantee">
+          <span class="lock-icon">🔒</span>
+          <span>100% Stored Locally. Zero external trackers or servers.</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <h2 id="section-title">Setup Wizard</h2>
+          <span id="save-status-indicator" class="save-indicator">Saved locally</span>
+        </div>
+        <div class="topbar-actions">
+          <button id="btn-seed-profile" class="btn btn-secondary">Load Demo Profile</button>
+          <button id="btn-save-all" class="btn btn-primary">Save Changes</button>
+        </div>
+      </header>
+
+      <!-- Section Containers -->
+      <div class="content-body">
+
+        <!-- 1. WIZARD -->
+        <section id="tab-wizard" class="tab-pane active">
+          <div class="card wizard-card">
+            <div class="wizard-header">
+              <h3>Welcome to Job Autofill</h3>
+              <p>Configure your information once. Next time you apply for jobs on Workday, Greenhouse, Lever, or Personio, click <strong>RUN AUTOFILL</strong> to complete forms in seconds.</p>
+            </div>
+            <div class="wizard-steps-container">
+              <div class="wizard-step-item">
+                <span class="step-num">1</span>
+                <div>
+                  <strong>Personal & Contact Info</strong>
+                  <p>Names, email, phone, and home address</p>
+                </div>
+              </div>
+              <div class="wizard-step-item">
+                <span class="step-num">2</span>
+                <div>
+                  <strong>Preferences & Compensation</strong>
+                  <p>Target roles, salary expectations, and notice period</p>
+                </div>
+              </div>
+              <div class="wizard-step-item">
+                <span class="step-num">3</span>
+                <div>
+                  <strong>Education & Experience</strong>
+                  <p>Degrees, previous employers, and achievements</p>
+                </div>
+              </div>
+              <div class="wizard-step-item">
+                <span class="step-num">4</span>
+                <div>
+                  <strong>Skills & Saved Q&A</strong>
+                  <p>Key competencies and standard answers to common questions</p>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:20px; display:flex; gap:12px;">
+              <button id="btn-start-wizard" class="btn btn-primary">Begin Step-by-Step Setup →</button>
+              <button id="btn-load-seed-quick" class="btn btn-secondary">Load Fictional Demo Profile</button>
+            </div>
+            <p style="font-size:13px; color:#64748b;">Loading the candidate profile keeps your saved answers, learned corrections, history, and settings.</p>
+          </div>
+        </section>
+
+        <!-- 2. PERSONAL INFO -->
+        <section id="tab-basic" class="tab-pane">
+          <div class="card">
+            <h3>Basic Identity</h3>
+            <div class="grid grid-3">
+              <div class="form-group">
+                <label>First Name / Vorname *</label>
+                <input type="text" id="inp-firstName" />
+              </div>
+              <div class="form-group">
+                <label>Middle Name</label>
+                <input type="text" id="inp-middleName" />
+              </div>
+              <div class="form-group">
+                <label>Last Name / Nachname *</label>
+                <input type="text" id="inp-lastName" />
+              </div>
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="inp-fullName" />
+              </div>
+              <div class="form-group">
+                <label>Preferred Name</label>
+                <input type="text" id="inp-preferredName" />
+              </div>
+              <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="date" id="inp-dateOfBirth" />
+              </div>
+              <div class="form-group">
+                <label>Gender</label>
+                <select id="inp-gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="non-binary">Non-binary</option>
+                  <option value="prefer-not-to-say">Prefer not to say</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Nationality</label>
+                <input type="text" id="inp-nationality" />
+              </div>
+              <div class="form-group">
+                <label>Country of Birth</label>
+                <input type="text" id="inp-countryOfBirth" />
+              </div>
+            </div>
+
+            <h3 style="margin-top:24px;">Contact Channels</h3>
+            <div class="grid grid-3">
+              <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" id="inp-email" />
+              </div>
+              <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" id="inp-phone" />
+              </div>
+              <div class="form-group">
+                <label>Alternative Phone</label>
+                <input type="tel" id="inp-altPhone" />
+              </div>
+              <div class="form-group">
+                <label>LinkedIn Profile URL</label>
+                <input type="url" id="inp-linkedin" />
+              </div>
+              <div class="form-group">
+                <label>GitHub Profile URL</label>
+                <input type="url" id="inp-github" />
+              </div>
+              <div class="form-group">
+                <label>Portfolio / Personal Website</label>
+                <input type="url" id="inp-portfolio" />
+              </div>
+            </div>
+
+            <h3 style="margin-top:24px;">Residential Address</h3>
+            <div class="grid grid-3">
+              <div class="form-group grid-col-2">
+                <label>Street Address / Straße *</label>
+                <input type="text" id="inp-street" />
+              </div>
+              <div class="form-group">
+                <label>House Number / Hausnr.</label>
+                <input type="text" id="inp-houseNumber" />
+              </div>
+              <div class="form-group">
+                <label>Postal Code / PLZ *</label>
+                <input type="text" id="inp-postalCode" />
+              </div>
+              <div class="form-group">
+                <label>City / Stadt *</label>
+                <input type="text" id="inp-city" />
+              </div>
+              <div class="form-group">
+                <label>State / Bundesland</label>
+                <input type="text" id="inp-state" />
+              </div>
+              <div class="form-group">
+                <label>Country / Land *</label>
+                <input type="text" id="inp-country" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. JOB PREFERENCES -->
+        <section id="tab-preferences" class="tab-pane">
+          <div class="card">
+            <h3>Target Roles & Mobility</h3>
+            <div class="grid grid-2">
+              <div class="form-group grid-col-2">
+                <label>Desired Job Title</label>
+                <input type="text" id="inp-desiredTitle" />
+              </div>
+              <div class="form-group grid-col-2">
+                <label>Alternative Titles (comma-separated)</label>
+                <input type="text" id="inp-altTitles" />
+              </div>
+              <div class="form-group">
+                <label>Remote / On-site Preference</label>
+                <select id="inp-remotePreference">
+                  <option value="hybrid">Hybrid</option>
+                  <option value="remote">Remote Only</option>
+                  <option value="onsite">On-site Only</option>
+                  <option value="flexible">Flexible / Any</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Preferred Locations (comma-separated)</label>
+                <input type="text" id="inp-preferredLocations" />
+              </div>
+            </div>
+
+            <div class="checkbox-row" style="margin-top:16px;">
+              <label class="checkbox-label">
+                <input type="checkbox" id="inp-willingToRelocate" />
+                <span>Willing to Relocate</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="inp-willingToTravel" />
+                <span>Willing to Travel</span>
+              </label>
+            </div>
+
+            <h3 style="margin-top:24px;">Availability & Employment Types</h3>
+            <div class="grid grid-3">
+              <div class="form-group">
+                <label>Earliest Start Date</label>
+                <input type="date" id="inp-earliestStartDate" />
+              </div>
+              <div class="form-group">
+                <label>Available From (text)</label>
+                <input type="text" id="inp-availableFrom" placeholder="e.g. October 2026 / Immediately" />
+              </div>
+              <div class="form-group">
+                <label>Notice Period / Kündigungsfrist</label>
+                <input type="text" id="inp-noticePeriod" placeholder="e.g. 1 month, Immediately" />
+              </div>
+              <div class="form-group">
+                <label>Weekly Working Hours</label>
+                <input type="number" id="inp-weeklyWorkingHours" value="40" />
+              </div>
+              <div class="form-group">
+                <label>Current Status</label>
+                <input type="text" id="inp-currentEmploymentStatus" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. SALARY -->
+        <section id="tab-salary" class="tab-pane">
+          <div class="card">
+            <h3>Compensation Expectations</h3>
+            <p style="font-size:13px; color:#64748b;">The extension intelligently maps fields labeled <em>"Gehaltsvorstellung"</em>, <em>"Expected Salary"</em>, <em>"Desired Compensation"</em>, and <em>"Salary Requirements"</em> to these numbers.</p>
+            <div class="grid grid-3">
+              <div class="form-group">
+                <label>Expected Annual Salary (€ / $)</label>
+                <input type="number" id="inp-expectedAnnual" />
+              </div>
+              <div class="form-group">
+                <label>Minimum Acceptable Annual</label>
+                <input type="number" id="inp-minAnnual" />
+              </div>
+              <div class="form-group">
+                <label>Currency</label>
+                <select id="inp-currency">
+                  <option value="EUR">EUR (€)</option>
+                  <option value="USD">USD ($)</option>
+                  <option value="GBP">GBP (£)</option>
+                  <option value="CHF">CHF</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Expected Monthly Salary</label>
+                <input type="number" id="inp-monthlyExpectation" />
+              </div>
+              <div class="form-group">
+                <label>Expected Hourly Rate</label>
+                <input type="number" id="inp-hourlyExpectation" />
+              </div>
+              <div class="form-group" style="display:flex; align-items:flex-end;">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="inp-salaryNegotiable" checked />
+                  <span>Salary Negotiable</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. WORK AUTHORIZATION -->
+        <section id="tab-authorization" class="tab-pane">
+          <div class="card">
+            <h3>Work Eligibility & Visa Sponsorship</h3>
+            <p style="font-size:13px; color:#64748b;">Safety Rule: The extension will never guess work authorization questions. If a question is ambiguous, it flags it for your manual verification.</p>
+            <div class="grid grid-2">
+              <div class="checkbox-row grid-col-2">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="inp-legallyAuthorized" checked />
+                  <span>Legally authorized to work in this country</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="inp-requireSponsorshipNow" />
+                  <span>Require employer visa sponsorship now</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="inp-requireSponsorshipFuture" />
+                  <span>Require employer sponsorship in the future</span>
+                </label>
+              </div>
+              <div class="form-group grid-col-2">
+                <label>Current Work Authorization / Visa Type</label>
+                <input type="text" id="inp-currentAuthType" />
+              </div>
+              <div class="form-group">
+                <label>Authorization Expiry Date</label>
+                <input type="date" id="inp-authExpiryDate" />
+              </div>
+              <div class="form-group grid-col-2">
+                <label>Additional Notes / Explanation</label>
+                <textarea id="inp-authNotes" rows="2"></textarea>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. EDUCATION -->
+        <section id="tab-education" class="tab-pane">
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <h3>Education History</h3>
+              <button id="btn-add-education" class="btn btn-secondary">+ Add Degree</button>
+            </div>
+            <div id="education-list-container" class="card-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. WORK EXPERIENCE -->
+        <section id="tab-experience" class="tab-pane">
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <h3>Work Experience</h3>
+              <button id="btn-add-experience" class="btn btn-secondary">+ Add Position</button>
+            </div>
+            <div id="experience-list-container" class="card-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 8. SKILLS -->
+        <section id="tab-skills" class="tab-pane">
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <h3>Skills Database</h3>
+              <button id="btn-add-skill" class="btn btn-secondary">+ Add Skill</button>
+            </div>
+            <div id="skills-list-container" class="skills-grid">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 9. LANGUAGES -->
+        <section id="tab-languages" class="tab-pane">
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <h3>Languages & CEFR Proficiency</h3>
+              <button id="btn-add-language" class="btn btn-secondary">+ Add Language</button>
+            </div>
+            <div id="languages-list-container" class="card-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 10. DOCUMENTS -->
+        <section id="tab-documents" class="tab-pane">
+          <div class="card">
+            <h3>Document Manager</h3>
+            <p style="font-size:13px; color:#64748b;">Manage references to your CV, cover letters, and transcripts. Stored 100% locally on your machine.</p>
+            <div id="documents-list-container" class="card-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 11. SAVED ANSWERS (Q&A) -->
+        <section id="tab-qa" class="tab-pane">
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <h3>Saved Reusable Answers (Q&A)</h3>
+              <button id="btn-add-qa" class="btn btn-secondary">+ Add Custom Answer</button>
+            </div>
+            <p style="font-size:13px; color:#64748b;">These answers will automatically match custom company questions (e.g. <em>"Why do you want to work here?"</em>, <em>"What are your strengths?"</em>).</p>
+            <div id="qa-list-container" class="card-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 11b. LEARNED CORRECTIONS -->
+        <section id="tab-corrections" class="tab-pane">
+          <div class="card">
+            <h3>Learned Corrections</h3>
+            <p style="font-size:13px; color:#64748b;">Your manual answers and choices are remembered and reused before site defaults, including choices that agree with those defaults. Checkbox choices, including consent, apply only to the same question on the same site. Learning requires <em>Learning mode</em>; file uploads are excluded. Remove an entry to forget that site-specific choice.</p>
+            <div id="corrections-list-container" class="card-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 12. COVER LETTER TEMPLATES -->
+        <section id="tab-cover-letters" class="tab-pane">
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <h3>Cover Letter Templates</h3>
+              <button id="btn-add-template" class="btn btn-secondary">+ Add Template</button>
+            </div>
+            <p style="font-size:13px; color:#64748b;">Use placeholders like <code>{{company}}</code> and <code>{{role}}</code>. When a cover letter box is detected, the extension offers template insertion with preview.</p>
+            <div id="templates-list-container" class="card-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 13. HISTORY -->
+        <section id="tab-history" class="tab-pane">
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <h3>Local Application History</h3>
+              <button id="btn-clear-history" class="btn btn-secondary">Clear History</button>
+            </div>
+            <div id="history-list-container">
+              <!-- Dynamically populated table -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 14. AUTOFILL CONFIG -->
+        <section id="tab-autofill-config" class="tab-pane">
+          <div class="card">
+            <h3>Autofill Safety & Behavior Settings</h3>
+            <div class="grid grid-2">
+              <div class="form-group">
+                <label>Autofill Fill Mode</label>
+                <select id="cfg-mode">
+                  <option value="safe">Safe (Only fill fields with $\ge 85\%$ confidence)</option>
+                  <option value="normal">Normal (Fill $\ge 65\%$, review uncertain)</option>
+                  <option value="aggressive">Aggressive (Fill all identifiable fields)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Confidence Score Threshold (Safe Mode)</label>
+                <select id="cfg-threshold">
+                  <option value="0.90">90% (Ultra conservative)</option>
+                  <option value="0.85" selected>85% (Balanced)</option>
+                  <option value="0.75">75% (Permissive)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="checkbox-col" style="margin-top:20px; display:flex; flex-direction:column; gap:12px;">
+              <label class="checkbox-label">
+                <input type="checkbox" id="cfg-learningMode" checked />
+                <span>Learning mode: automatically save my manual answers on verified job-application forms (local only)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="cfg-autofillEnabled" />
+                <span>Enable autofill after I have reviewed enough learned answers</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="cfg-reuseLearned" checked />
+                <span>Automatically reuse my saved answers and choices on application forms</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="cfg-autoStart" />
+                <span>Start autofill automatically when a verified application form opens (fills fields only; never submits)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="cfg-highlight" checked />
+                <span>Highlight filled fields on page (Green for filled, Amber for review)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="cfg-preview" />
+                <span>Always show Preview modal before applying autofill</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="cfg-askSensitive" checked />
+                <span>Always require manual review for sensitive fields (Visa/Salary/Demographics)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="cfg-keyboard" checked />
+                <span>Enable keyboard shortcut (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="cfg-contextMenu" checked />
+                <span>Enable right-click browser context menu</span>
+              </label>
+              <label class="checkbox-label" style="opacity:0.6;">
+                <input type="checkbox" id="cfg-autoSubmit" disabled />
+                <span>Automatically submit application (Permanently disabled for safety)</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- 15. PRIVACY & DATA -->
+        <section id="tab-privacy" class="tab-pane">
+          <div class="card">
+            <h3>Privacy Guarantee & Data Ownership</h3>
+            <p>This extension runs entirely inside your browser sandbox. Your personal information, work history, credentials, and answers are never transmitted to any external API or cloud server.</p>
+
+            <div style="margin-top:24px; display:flex; flex-direction:column; gap:16px;">
+              <div>
+                <h4>Export Profile</h4>
+                <p style="font-size:13px; color:#64748b;">Download your complete profile, including saved answers and learned corrections, as a JSON backup.</p>
+                <button id="btn-export-json" class="btn btn-secondary">Export to JSON File</button>
+              </div>
+
+              <div style="border-top:1px solid #e2e8f0; padding-top:16px;">
+                <h4>Import Profile</h4>
+                <p style="font-size:13px; color:#64748b;">Load a profile JSON file and combine its saved answers and learned corrections with yours. Your existing answers take priority when both profiles contain the same question or correction.</p>
+                <input type="file" id="inp-import-json" accept=".json" style="margin-bottom:8px; display:block;" />
+                <button id="btn-import-json" class="btn btn-secondary">Import from Selected File</button>
+              </div>
+
+              <div style="border-top:1px solid #e2e8f0; padding-top:16px;">
+                <h4>Clear All Data</h4>
+                <p style="font-size:13px; color:#ef4444;">Erase all saved profile information, learned answers, corrections, documents, and application history from this computer.</p>
+                <button id="btn-clear-all" class="btn" style="background:#ef4444; color:white;">Clear All Data</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="settings.ts"></script>
+</body>
+</html>
